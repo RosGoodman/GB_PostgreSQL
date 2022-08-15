@@ -1,0 +1,7 @@
+CREATE TYPE contacts_type AS (phone VARCHAR(15), emails VARCHAR(120));
+
+ALTER TABLE users ADD column user_contacts contacts_type;
+
+UPDATE users SET user_contacts.phone = phone, user_contacts.emails = email;
+
+UPDATE users SET user_contacts.emails = 'test@somemail.ru' WHERE id = 21;
