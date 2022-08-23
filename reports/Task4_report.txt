@@ -1,7 +1,0 @@
-ALTER TABLE communities ADD COLUMN members INT [];
-
-update communities set members = 
-array(select community_id from subscriptions_to_communities where community_id = 3) 
-where id = 3;
-
-select members from communities where id = 3;
