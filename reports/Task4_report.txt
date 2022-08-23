@@ -1,3 +1,7 @@
-CREATE TYPE contacts_type AS (phone character varying(15), emails character varying(120));
+ALTER TABLE communities ADD COLUMN members INT [];
 
-ALTER TABLE users ADD column user_contacts contacts_type;
+update communities set members = 
+array(select community_id from subscriptions_to_communities where community_id = 3) 
+where id = 3;
+
+select members from communities where id = 3;
