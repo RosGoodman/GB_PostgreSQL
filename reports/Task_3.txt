@@ -1,0 +1,11 @@
+WITH big_video AS (
+	SELECT id, url, size, owner_id FROM video 
+	ORDER BY size DESC LIMIT 10)
+SELECT big_video.id,
+	first_name, last_name,
+	big_video.url, big_video.size,
+	photo url
+FROM users
+	JOIN big_video ON big_video.owner_id = users.id
+	LEFT JOIN photo
+	ON photo.id = users.main_photo_id ORDER BY size DESC;
